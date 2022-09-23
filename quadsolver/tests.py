@@ -19,6 +19,17 @@ class TestQuadratricSolver(unittest.TestCase):
         with self.assertRaises(ValueError):
             _ = main.solve_quadratic('a', 'b', 'c')
 
+    def test_other(self):
+        x1, x2 = main.solve_quadratic(1, 1, 1)
+        # assertions
+        self.assertIsInstance(x1, complex)
+        self.assertIsInstance(x2, complex)
+        # validate values
+        self.assertEqual(complex(-0.5, 0.8660254037844386), x1)
+        self.assertEqual(complex(-0.5, 0.8660254037844386), x2)
+
+
+
 
 class TestCLI(unittest.TestCase):
     def test_coefficients(self):
