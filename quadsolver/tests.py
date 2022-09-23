@@ -16,7 +16,7 @@ class TestQuadratricSolver(unittest.TestCase):
 
     def test_negative(self):
         """Test for correct types"""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             _ = main.solve_quadratic('a', 'b', 'c')
 
     def test_other(self):
@@ -36,4 +36,5 @@ class TestCLI(unittest.TestCase):
         """Coefficients handling"""
         sys.argv = "python 1 2 1".split(' ')
         args = cli.parse_args()
-        self.assertEqual((1.0, 2.0, 1.0), args.coefficients)
+        print (args)
+        self.assertEqual([1.0, 2.0, 1.0], args.coefficients)
